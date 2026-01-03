@@ -1,0 +1,40 @@
+
+LSP says: If X and Y both implement the same interface/inherit the same class,
+they should be truly interchangeable without surprises.
+
+Here without surprise means you there should be no perfomance lag or behaviour lag
+
+
+Three Theoretical Approaches to Fix LSP Violations
+1. Separate Interfaces by Capability
+Instead of forcing all subtypes to implement everything, split interfaces based on actual capabilities.
+Theory:
+
+Create granular interfaces for specific behaviors
+Subtypes only implement what they can actually support
+Clients depend only on the capabilities they need
+No subtype is forced to fake/throw exceptions for unsupported operations
+
+Result: Substitution works because subtypes only advertise what they truly support.
+
+2. Make Constraints Explicit in the Contract
+Move constraints from implementation to the interface contract itself.
+Theory:
+
+The base type/interface declares all constraints upfront (size limits, performance guarantees, preconditions, postconditions)
+All subtypes must honor the same constraints
+No subtype can have stricter requirements (stronger preconditions)
+No subtype can provide weaker guarantees (weaker postconditions)
+
+Result: Substitution works because all implementations operate within the same boundaries.
+
+3. Return Success/Failure States Instead of Exceptions
+Replace exceptional behavior with explicit result types.
+Theory:
+
+Methods return a result object (success/failure/error) instead of throwing exceptions
+All subtypes use the same error-handling mechanism
+Failures become part of normal control flow, not exceptional cases
+Clients must handle all possible outcomes explicitly
+
+Result: Substitution works because all implementations have uniform error semantics.
