@@ -1,0 +1,34 @@
+What problem does the Decorator Pattern solve?
+Problem statement:
+
+You want to add new behavior to an object at runtime without modifying its existing code or creating too many subclasses.
+
+Why this problem exists
+Imagine:
+
+You have a Coffee
+
+You want:
+
+Milk coffee
+
+Sugar coffee
+
+Milk + Sugar coffee
+
+Milk + Sugar + Cream coffee
+
+❌ If you use inheritance:
+
+MilkCoffee
+
+SugarCoffee
+
+MilkSugarCoffee
+
+MilkSugarCreamCoffee
+
+👉 Class explosion problem.
+
+Decorator Pattern solves this cleanly.
+
