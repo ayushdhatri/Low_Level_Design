@@ -4,6 +4,14 @@ they should be truly interchangeable without surprises.
 
 Here without surprise means you there should be no perfomance lag or behaviour lag
 
+*** 
+A subtype S is substitutable for type T if and only if:
+
+For all properties provable about objects of type T
+Those same properties hold for objects of type S
+When S is used in place of T
+Without the client knowing the difference 
+***
 
 Three Theoretical Approaches to Fix LSP Violations
 1. Separate Interfaces by Capability
