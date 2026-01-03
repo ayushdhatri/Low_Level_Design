@@ -1,0 +1,24 @@
+What problem does the Observer Pattern solve?
+Problem statement (in simple words):
+
+When one object changes state, many other objects may need to react to that change — without tightly coupling them together.
+
+Real-life analogy
+You subscribe to a YouTube channel
+
+When a new video is uploaded:
+
+All subscribers get notified
+
+The channel does not care who you are
+
+Subscribers can join or leave anytime
+
+This is exactly what Observer Pattern models.
+
+How to transition from theory to code (IMPORTANT)
+In an interview, you should say:
+
+“First, I’ll define Observer and Subject interfaces.
+Then I’ll implement ConcreteSubject to manage state changes.
+Finally, I’ll create ConcreteObservers that react via update()."
