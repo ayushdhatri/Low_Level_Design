@@ -1,0 +1,34 @@
+
+**Reasons this class would change:**
+1. ✅ Registration workflow changes (e.g., need to send SMS before email, or skip email for certain users)
+
+**That's only 1 reason!**
+
+- Validation rules change? → Only `UserValidator` changes
+- Database changes? → Only `UserRepository` changes
+- Email provider changes? → Only `EmailService` changes
+- Logging changes? → Only `Logger` changes
+
+---
+
+## A Better Mental Model
+
+Think of SRP in terms of **layers of abstraction**:
+```
+High-level policy (business workflow)
+          ↓
+UserRegistrationService ← This coordinates "WHAT" happens
+          ↓
+Low-level details (implementation)
+          ↓
+UserValidator, UserRepository, EmailService, Logger ← These handle "HOW"
+
+**** One doubt that came to my mind ***
+I want to understand here that in Single Responsiblity example you seperated the concern to different class
+but in userREgistrationService class you have multiple responsiblity of
+validation, userRespo, EmailServiced, Logger, then how you say that it is single responsiblity?
+
+Understanding "Responsibility" vs "Orchestration"
+The key distinction is between doing the work vs coordinating the work.
+UserRegistrationService's SINGLE Responsibility
+UserRegistrationService has ONE responsibility: "Orchestrating the user registration process"
