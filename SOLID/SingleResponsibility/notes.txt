@@ -32,3 +32,9 @@ Understanding "Responsibility" vs "Orchestration"
 The key distinction is between doing the work vs coordinating the work.
 UserRegistrationService's SINGLE Responsibility
 UserRegistrationService has ONE responsibility: "Orchestrating the user registration process"
+It's not responsible for:
+
+❌ HOW to validate (that's UserValidator's job)
+❌ HOW to save to database (that's UserRepository's job)
+❌ HOW to send emails (that's EmailService's job)
+❌ HOW to log (that's Logger's job)

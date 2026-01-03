@@ -37,11 +37,11 @@ class UserRegistrationService {
 }
 
 /*
-Each class now has a single, well-defined responsibility
-Changes to email logic don't affect validation or persistence
-Easier to test each component in isolation
-Better code organization and maintainability
- */
+    Each class now has a single, well-defined responsibility
+    Changes to email logic don't affect validation or persistence
+    Easier to test each component in isolation
+    Better code organization and maintainability
+*/
 
 public class GoodExample{
 

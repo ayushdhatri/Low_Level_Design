@@ -1,0 +1,2 @@
+Definition: Clients should not be forced to depend on interfaces they don't use.
+ Many specific interfaces are better than one general-purpose interface.
