@@ -1,0 +1,27 @@
+Behavioral patterns are all about how objects interact, communicate, and distribute responsibilities among themselves.
+They focus on the flow of control and communication between objects rather than the objects themselves.
+The core question they answer: How should objects work together? How do they communicate? Who is responsible for what?
+Key Characteristics
+Behavioral patterns typically deal with:
+
+Communication between objects - how objects talk to each other
+Responsibility distribution - which object does what
+Algorithms and their variations - encapsulating different ways to do things
+Control flow - managing complex flows and sequences of operations
+
+Common Behavioral Patterns
+Let me give you a sense of different behavioral patterns and what problems they solve:
+Strategy (which you asked about) - Lets you swap algorithms at runtime. Problem: You have multiple ways to do something and want to choose between them dynamically.
+Observer - One object notifies multiple other objects when its state changes. Problem: You need to keep multiple objects in sync when something changes (like updating multiple UI elements when data changes).
+Command - Encapsulates a request as an object. Problem: You want to queue operations, undo them, or pass them around as data (like implementing undo/redo).
+State - An object changes its behavior when its internal state changes. Problem: An object behaves differently depending on its state, and you want to avoid messy if/else chains (like a vending machine that behaves differently when it's out of stock vs. ready).
+Chain of Responsibility - Multiple objects get a chance to handle a request, passing it along a chain. Problem: You don't know which object should handle a request, so you let them try one by one (like exception handling or middleware).
+Template Method - Defines the skeleton of an algorithm, letting subclasses override specific steps. Problem: You have an algorithm with steps that vary, but the overall structure stays the same.
+Iterator - Provides a way to access elements of a collection sequentially without exposing its internal structure. Problem: You want to traverse different data structures uniformly.
+Why "Behavioral"?
+Think of it this way: if you're watching your application run, behavioral patterns define what you see happening—the interactions, the flow, the dynamic behavior. They're not about what the objects are (structure) or how they came into being (creation), but about what they do and how they collaborate.
+A metaphor: If objects were actors in a play:
+
+Creational patterns = how actors are cast and prepared
+Structural patterns = how the stage is set up and actors are positioned
+Behavioral patterns = the script, dialogue, and interactions between actors
