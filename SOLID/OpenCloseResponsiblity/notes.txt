@@ -1,0 +1,5 @@
+- Adding new payment methods doesn't require changing existing code
+- Uses polymorphism and abstraction
+- Reduces risk of breaking existing functionality
+- Strategy pattern is a common implementation
+   
