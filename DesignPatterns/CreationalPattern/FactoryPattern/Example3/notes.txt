@@ -1,0 +1,2 @@
+Factory Pattern encapsulates object creation logic and allows the client to work with abstractions instead of concrete implementations, 
+improving flexibility and maintainability.”
