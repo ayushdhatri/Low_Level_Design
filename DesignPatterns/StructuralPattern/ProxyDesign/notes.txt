@@ -2,3 +2,31 @@ Proxy is a Structural pattern because it controls and restructures how an object
 without changing the object’s behavior or how it is created.
 
 Everything related to access comes under structural pattern
+
+
+Key Idea: Instead of accessing the real object directly, you access it through a proxy that can add extra functionality like:
+
+Lazy initialization (create object only when needed)
+Access control (check permissions)
+Logging (track usage)
+Caching (store results)
+Remote access (object is on different server)
+
+
+**** 
+
+"I'd use Proxy when:
+
+Object creation is expensive (lazy loading)
+Need access control (security)
+Want to add logging without changing original class
+Object is on remote server (remote proxy)
+Example: Loading high-resolution images in a photo gallery - show proxies initially, load real images only when user clicks."
+
+***
+
+Q1: Difference between Proxy and Decorator?
+
+"Proxy controls access to an object and often creates it.
+ Decorator adds behavior to an existing object.
+  Proxy is about 'when/how to access', Decorator is about 'what extra to do'."
