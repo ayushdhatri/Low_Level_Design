@@ -1,0 +1,4 @@
+
+“Chain of Responsibility is a Behavioral design pattern because
+it defines how a request is passed along a chain of handlers and
+how the handling responsibility is determined dynamically at runtime.”

@@ -25,3 +25,20 @@ A metaphor: If objects were actors in a play:
 Creational patterns = how actors are cast and prepared
 Structural patterns = how the stage is set up and actors are positioned
 Behavioral patterns = the script, dialogue, and interactions between actors
+
+
+What Behavioral patterns focus on
+Behavioral patterns are about:
+
+How objects communicate
+
+How responsibilities are assigned
+
+How control flows at runtime
+
+They answer questions like:
+
+Who handles the request?
+In what order?
+What happens if one object can’t handle it?
+
