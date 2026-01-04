@@ -1,0 +1,4 @@
+Proxy is a Structural pattern because it controls and restructures how an object is accessed, 
+without changing the object’s behavior or how it is created.
+
+Everything related to access comes under structural pattern
