@@ -1,0 +1,5 @@
+** PARKING Lot **************
+
+-> Analysis of requirements
+-> will draw the UML diagram
+-> Star with the coding
