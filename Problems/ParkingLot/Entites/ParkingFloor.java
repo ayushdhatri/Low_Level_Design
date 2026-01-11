@@ -7,6 +7,7 @@ public class ParkingFloor {
 
 
 
+
     public ParkingFloor(){
         this.parkingSpot = new ArrayList<>();
     }
@@ -16,6 +17,16 @@ public class ParkingFloor {
     public Optional<ParkingSpot> findAvailableSpot(Vehicle vehicle){
         // logic to get avaialbe parking spot
         return null;
+
+    }
+    public boolean hasSpot(String spotId){
+        for(int i = 0;i<parkingSpot.size();i++){
+            ParkingSpot spot = parkingSpot.get(i);
+            if(spot.spotId == spotId){
+                return true;
+            }
+        }
+        return false;
 
     }
 
