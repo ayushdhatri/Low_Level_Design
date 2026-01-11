@@ -11,7 +11,7 @@ import Low_Level_Design.Problems.ParkingLot.CopyDesign.vehicle.Vehicle;
 
 
 
-interface ParkingStrategy {
+public interface ParkingStrategy {
 
     Optional<ParkingSpot> findSpot(List<ParkingFloor> floors, Vehicle vehicle);
 }

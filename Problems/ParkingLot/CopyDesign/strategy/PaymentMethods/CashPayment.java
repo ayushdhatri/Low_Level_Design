@@ -1,4 +1,4 @@
-package Low_Level_Design.Problems.ParkingLot.Strategy.PaymentMethods;
+package Low_Level_Design.Problems.ParkingLot.CopyDesign.strategy.PaymentMethods;
 
 public class CashPayment implements PaymentStratergy {
     @Override
