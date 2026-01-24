@@ -22,5 +22,9 @@ public class Item {
         return price;
     }
 
+    public String getCode(){
+        return this.code;
+    }
+
     
 }
