@@ -1,2 +1,5 @@
 ### Design Implementation ###
 
+I was confused if to keep cash dispenser inside ATM machine class or inside bank services?
+-> Do is-a or has-a test?
+
