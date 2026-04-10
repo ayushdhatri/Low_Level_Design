@@ -7,16 +7,16 @@ public class NotificationSender {
         for(String notificationType : notificationTypes){
             switch (notificationType) {
                 case "SMS":
-                    //notificationType.sendSMSNotification(message);
+                    new SmsNotification().sendSMSNotification(message);
                     break;
                 case "EMAIL" :
                     new EmailNotification().sendEmailNotification(message);
                     break;
                 case "PUSH" : 
-                    //notificationType.sendPushNotification(message);
+                    new PushNotification().sendPushNotification(message);
                     break;
                 case "WHATSAPP":
-                    //notificationType.sendWhatsAppNotification(message);
+                    new WhatsAppNotification().sendWhatsAppNotification(message);
                     break;
                 default:
                     System.out.println("Failed to Send Message, No method exist");

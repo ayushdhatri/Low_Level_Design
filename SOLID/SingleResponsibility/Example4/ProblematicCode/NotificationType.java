@@ -5,7 +5,6 @@ public enum NotificationType {
     EMAIL,
     PUSH,
     WHATSAPP;
-
     public void sendSMSNotification(String message){
         System.out.println("SMS" + message);
     } 
@@ -21,7 +20,4 @@ public enum NotificationType {
     public void sendWhatsAppNotification(String message){
         System.out.println("WhatsApp : " + message);
     }
-
-
-    
 }
