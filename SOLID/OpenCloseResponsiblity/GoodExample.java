@@ -14,8 +14,8 @@ class CreditCardPayment implements PaymentMethod {
 
 class PayPalPayment implements PaymentMethod {
     @Override
-    public void processPayment(double amount) {
-        System.out.println("Processing PayPal payment: " + amount);
+    public void processPayment(double amountt) {
+        System.out.println("Processing PayPal payment: " + amountt);
     }
 }
 
