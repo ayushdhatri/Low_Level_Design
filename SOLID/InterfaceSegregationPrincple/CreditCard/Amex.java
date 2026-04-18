@@ -1,7 +1,7 @@
 package Low_Level_Design.SOLID.InterfaceSegregationPrincple.CreditCard;
 
 public class Amex extends CreditCard implements RefundCompatibleCreditCard{
-    public RefundAlgorithm refundAlgorithm;
+    public RefundLogic refundAlgorithm;
        @Override
     public void swipeAndPay() {
         System.out.println("Amex card swipe and pay");
@@ -19,7 +19,7 @@ public class Amex extends CreditCard implements RefundCompatibleCreditCard{
 
     @Override
     public void refundAmount() {
-       refundAlgorithm.Algo2();
+       refundAlgorithm.doRefund();
     }
     
     

@@ -1,7 +1,7 @@
 package Low_Level_Design.SOLID.InterfaceSegregationPrincple.CreditCard;
 
 public class Rupay extends CreditCard implements RefundCompatibleCreditCard{
-        public RefundAlgorithm refundAlgorithm;
+        public RefundLogic refundAlgorithm;
        @Override
     public void swipeAndPay() {
         System.out.println("Rupay card swipe and pay");
@@ -19,7 +19,7 @@ public class Rupay extends CreditCard implements RefundCompatibleCreditCard{
 
     @Override
     public void refundAmount() {
-       refundAlgorithm.Algo2();
+       refundAlgorithm.doRefund();
     }
     
     

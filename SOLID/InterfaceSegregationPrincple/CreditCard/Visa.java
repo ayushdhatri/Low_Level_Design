@@ -1,7 +1,7 @@
 package Low_Level_Design.SOLID.InterfaceSegregationPrincple.CreditCard;
 
 public class Visa extends CreditCard implements RefundCompatibleCreditCard{
-    public RefundAlgorithm refundAlgorithm;
+    public RefundLogic refundAlgorithm;
     @Override
     public void swipeAndPay() {
         System.out.println("Visa card swipe and pay");
@@ -19,6 +19,6 @@ public class Visa extends CreditCard implements RefundCompatibleCreditCard{
     
      @Override
     public void refundAmount() {
-       refundAlgorithm.Algo1();
+       refundAlgorithm.doRefund();
     }
 }

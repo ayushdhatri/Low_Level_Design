@@ -1,7 +1,7 @@
 package Low_Level_Design.SOLID.InterfaceSegregationPrincple.CreditCard;
 
 public class MasterCard extends CreditCard implements RefundCompatibleCreditCard{
-    public RefundAlgorithm refundAlgorithm;
+    public RefundLogic refundAlgorithm;
     @Override
     public void swipeAndPay() {
         System.out.println("MasterCard card swipe and pay");
@@ -18,7 +18,7 @@ public class MasterCard extends CreditCard implements RefundCompatibleCreditCard
     }
      @Override
     public void refundAmount() {
-       refundAlgorithm.Algo1();
+       refundAlgorithm.doRefund();
     }
     
     
