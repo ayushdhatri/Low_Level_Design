@@ -1,0 +1,46 @@
+Problem Statement :
+You are tasked with designing a system that evaluates business expenses submittted by employees.
+
+Managers can define policier(rules) to control expenses, ensuring employees do not misuse corporate card or exceed allowances.
+
+Your goal is to build a rules engine that:
+- Evaluates individual expenses againset a set of rules
+- Evaluates affregate trip-level expenses against set of rules 
+- Flags any violations clearly.
+
+Input Format : 
+- A List of expenses, where each expense is represented as a dictionary/map of string keys and values.
+Example Keys:
+- "expense_id"
+- "trip_id"
+- "amount_usd"
+- "expense_type" (e.g.."restraunt", "airfare", "entertainment")
+- "vendor_type"
+- "vendor_name"
+
+- A list of rules to evaluate. Rules can be applied at:
+- Expense Level(per individual expense).
+- Trip Level (Across all expense belonging to a trip)
+
+
+
+
+
+Basic Rules :
+- No Restraunt expense can exceed $75
+- No airfare expenses are allowed
+- No entertainment expenses are allowed
+- No single expense can exceed $250
+
+
+- Extended Rules:
+
+Later, add support for trip-level rules such as : 
+
+- A trip cannot exceed $2000 in total expenses
+- Total mean(restraunt) expenses per trip cannot exceed $1000
+
+Output Format :
+For each expense, return wheather it is approaved or rejected, with reason for rejection.
+for Each trip, return wheater it is OK or has violations, with reasons.
+
