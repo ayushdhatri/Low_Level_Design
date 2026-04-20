@@ -8,6 +8,7 @@ import Low_Level_Design.Problems.RipplingSimpleRuleEngine.model.Expense;
 
 public class TripTotalMaxRule implements TripRule {
     private final double maxAmount;
+    private String temp;
     public TripTotalMaxRule(double maxAmount){
         this.maxAmount = maxAmount;
     }
