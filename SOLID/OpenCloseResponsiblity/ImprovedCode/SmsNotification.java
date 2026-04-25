@@ -1,4 +1,4 @@
-package Low_Level_Design.SOLID.SingleResponsibility.Example4.ImprovedCode;
+package Low_Level_Design.SOLID.OpenCloseResponsiblity.ImprovedCode;
 
 
 public class SmsNotification implements Notification {

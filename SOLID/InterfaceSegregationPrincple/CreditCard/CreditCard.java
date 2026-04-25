@@ -9,7 +9,4 @@ public abstract class CreditCard {
     public abstract void swipeAndPay();
     public abstract void tapAndPay();
     public abstract void onlinePayment();
-    
-
-    
 } 
