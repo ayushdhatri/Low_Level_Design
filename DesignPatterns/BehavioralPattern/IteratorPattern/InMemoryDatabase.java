@@ -3,7 +3,8 @@ package Low_Level_Design.DesignPatterns.BehavioralPattern.IteratorPattern;
 import java.util.ArrayList;
 import java.util.List;
 
-class InMemoryDatabase {
+
+public class InMemoryDatabase {
     private List<String> users = new ArrayList<>();
 
     public void seeder(){
