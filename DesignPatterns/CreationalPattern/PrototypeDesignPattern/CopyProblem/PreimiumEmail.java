@@ -15,6 +15,7 @@ public class PreimiumEmail extends Email{
         super(email);
         this.cc = email.getCc();
         this.bcc = email.getBcc();
+
     }
 
     @Override

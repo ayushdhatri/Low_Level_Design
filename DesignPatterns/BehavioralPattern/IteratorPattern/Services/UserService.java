@@ -8,6 +8,7 @@ public class UserService {
     private final Iterator<List<String>> userIterator;
     public UserService(UserRepository userRepository){
         this.userRepository = userRepository;
+        this.userIterator = new It
     }
 
     public void getusersOnPlatform(){
