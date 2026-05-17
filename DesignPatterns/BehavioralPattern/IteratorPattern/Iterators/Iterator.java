@@ -2,6 +2,6 @@ package Low_Level_Design.DesignPatterns.BehavioralPattern.IteratorPattern.Iterat
 
 import java.util.List;
 public interface Iterator<T> {
-    boolean hasNext();
-    T next();
+    public boolean hasNext();
+    public T next();
 } 
