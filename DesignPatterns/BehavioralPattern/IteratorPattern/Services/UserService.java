@@ -11,8 +11,7 @@ public class UserService {
     private final Iterator<List<String>> userIterator;
     public UserService(UserRepository userRepository){
         this.userRepository =  userRepository;
-        this.userIterator = new UserIterator(10);
-
+        this.userIterator = new UserIterator(10);// lets say tommorow if you want to change iterator simply modify it over here
     }
 
     public void getusersOnPlatform(){
@@ -26,8 +25,9 @@ public class UserService {
         while(userIterator.hasNext()){
             List<String> users = userIterator.next();
             System.out.println(users);
-
+            // you are caring about offset, not caring about if data is there or not by custom logic
         }
+
     }
     
 }

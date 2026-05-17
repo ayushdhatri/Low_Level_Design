@@ -9,8 +9,8 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public List<String> findUsers(int limit, int offset) {
        List<String> allUsers = db.getUsers();
-       int start = (offset -1) * limit;
-       int end = Math.min(start + limit, allUsers.size());
+       int start = (offset -1) * limit;// start of paginated data
+       int end = Math.min(start + limit, allUsers.size());// end of paginated data
        if(start >= allUsers.size()){
         return List.of();
        }
