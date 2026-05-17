@@ -1,10 +1,16 @@
 package Low_Level_Design.DesignPatterns.CreationalPattern.FactoryPattern.Example4.ImprovedSolution;
 
-public interface Coffee {
-    void boil();
+public abstract class Coffee {
+    Milk milk;
+    Sugar sugar;
+    
 
-    void freeze();
+    IngrediantCreatorFactory icf;
 
-    void brew();
+    abstract void boil();
+
+    abstract void freeze();
+
+    abstract void brew();
     
 } 

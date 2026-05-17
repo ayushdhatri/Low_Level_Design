@@ -4,9 +4,18 @@ import Low_Level_Design.DesignPatterns.CreationalPattern.FactoryPattern.Example4
 
 
 public class CoffeeProcessor {
-    public Coffee prepareCoffee(String whichCoffee){
-        Coffee coffee = new CoffeeFactory().getCoffee(whichCoffee);
+    public Coffee prepareCoffee(String orderType, String theme){
+       IngrediantCreatorFactory icf = null;
+       if(theme.equals("Vegan")){
+            icf = new VeganIngredientCreatorFactory();
+       }
+       Coffee coffee = null;
+       if (orderType.equals("Latte")) {
+            // We just create it directly now!
+            coffee = new Latte(icf); 
+        } 
         return coffee;
+       
        
     }
     

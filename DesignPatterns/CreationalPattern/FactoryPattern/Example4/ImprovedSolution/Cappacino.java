@@ -1,6 +1,6 @@
 package Low_Level_Design.DesignPatterns.CreationalPattern.FactoryPattern.Example4.ImprovedSolution;
 
-public class Cappacino implements Coffee{
+public class Cappacino extends Coffee{
 
     @Override
     public void boil() {

@@ -1,6 +1,11 @@
 package Low_Level_Design.DesignPatterns.CreationalPattern.FactoryPattern.Example4.ImprovedSolution;
 
-public class Latte implements Coffee{
+public class Latte extends Coffee{
+    
+
+    Latte(IngrediantCreatorFactory lcf){
+        this.icf = lcf;
+    }
 
     @Override
     public void boil() {
