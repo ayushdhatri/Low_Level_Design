@@ -4,7 +4,7 @@ public class BrownSugar implements Sugar {
 
     @Override
     public String getSugarName() {
-        return "Brown Sugar";
+        return "Brown Sugars";
     }
     
 }
