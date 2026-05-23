@@ -1,6 +1,7 @@
 package Low_Level_Design.Problems.ATM.StateDesign.api;
 
 import Low_Level_Design.Problems.ATM.StateDesign.DTO.CreateTransactionRequestDTO;
+import Low_Level_Design.Problems.ATM.StateDesign.DTO.GetAtmAmountRequestDTO;
 import Low_Level_Design.Problems.ATM.StateDesign.DTO.UpdateATMStateRequestDTO;
 
 public class NodeBackendAPI implements BackendAPI {
@@ -27,6 +28,12 @@ public class NodeBackendAPI implements BackendAPI {
        // it is going to call the backend send this dto in request body 
        // if bank is able to update the state of atm it will return true 
        return true;
+    }
+
+    @Override
+    public int getAtmAmount(GetAtmAmountRequestDTO getAtmAmountRequestDTO) {
+        // it will call the bank server with following atmId and fetch the details
+        return 10000;
     }
     
 }

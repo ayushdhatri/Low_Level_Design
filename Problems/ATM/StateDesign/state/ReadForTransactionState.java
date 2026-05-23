@@ -36,7 +36,7 @@ public class ReadForTransactionState implements State {
     }
 
     @Override
-    public boolean readCardDetailsAndPin(Card card) {
+    public boolean readCardDetailsAndPin(Card card, String pin) {
        throw new IllegalStateException("Cannot read card details without inserting card");
     }
 
@@ -51,13 +51,17 @@ public class ReadForTransactionState implements State {
     }
 
     @Override
-    public boolean readCashWithdrawDetails(int transactionId, int amount) {
+    public boolean readCashWithdrawDetails(Card card, int transactionId, int amount) {
         throw new IllegalStateException("Cannot read cash withdraw details without reading card details");
     }
 
     @Override
     public ATMState getState() {
         return ATMState.READ_FOR_TRANSACTION;
+    }
+    @Override
+    public boolean cancelTransaction(int transactionId) {
+        throw new IllegalStateException("Cannot cancel a transaction before starint it");
     }
     
 }
