@@ -26,8 +26,8 @@ public class ReadingCashWithdrawlDetails implements State {
     }
 
     @Override
-    public int despenseCash(int transactionId) {
-        throw new IllegalStateException(:"Cannot dispense Cash without reading card details and pin");
+    public int despenseCash(Card card,int amount, int transactionId) {
+        throw new IllegalStateException("Cannot dispense Cash without reading card details and pin");
     }
 
     @Override
@@ -41,12 +41,15 @@ public class ReadingCashWithdrawlDetails implements State {
         CardManagerService cardManagerService = new CardManagerFactory().getCardManager(card.getCardType());
         boolean isWithdrawlValid = cardManagerService.validateWithdrawl(transactionId, amount);
         if(isWithdrawlValid){
-
+            this.atm.changeState(new DispensingCashState(atm));            
+            return true;
 
         }
         else{
-            this.atm.changeState(new ReadForTransactionState(atm, backendAPI));
+            this.atm.changeState(new ReadForTransactionState(atm));
         }
+        return false;
+        
     }
 
     @Override
@@ -55,7 +58,7 @@ public class ReadingCashWithdrawlDetails implements State {
     }
     @Override
     public boolean cancelTransaction(int transactionId) {
-       this.atm.changeState(new ReadForTransactionState(atm, backendAPI));
+       this.atm.changeState(new ReadForTransactionState(atm));
        return true;
     }
     

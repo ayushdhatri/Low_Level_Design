@@ -15,9 +15,9 @@ public class ReadForTransactionState implements State {
     private final ATM atm;// this is having the details of atm, which want to start the transaction
     private final BackendAPI atmBackendAPI;// we have convert this to interface so that DI is followed
 
-    public ReadForTransactionState(ATM atm, BackendAPI atmBackendAPI){
+    public ReadForTransactionState(ATM atm){
         this.atm = atm;
-        this.atmBackendAPI = atmBackendAPI;
+        this.atmBackendAPI = new NodeBackendAPI();
     }
     @Override
     public int initTransaction() {
@@ -31,7 +31,7 @@ public class ReadForTransactionState implements State {
         // also when you change state, your bank server should also be in sync that state has been changed
         // so we need api
 
-        this.atm.changeState(new ReadCardDetailsAndPinState(atm, atmBackendAPI));
+        this.atm.changeState(new ReadCardDetailsAndPinState(atm));
         return txnId;
     }
 
@@ -41,7 +41,7 @@ public class ReadForTransactionState implements State {
     }
 
     @Override
-    public int despenseCash(int transactionId) {
+    public int despenseCash(Card card,int amount,  int transactionId) {
        throw new IllegalStateException("Cannot Dispense Cash without reading card details");
     }
 

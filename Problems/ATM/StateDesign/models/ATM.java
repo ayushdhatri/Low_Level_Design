@@ -13,7 +13,7 @@ public class ATM {
 
     public ATM(String atmId){
         this.atmId = atmId;
-        this.state = new ReadForTransactionState(this, new NodeBackendAPI());
+        this.state = new ReadForTransactionState(this);
         this.atmBackendAPI = new NodeBackendAPI();
     }
 

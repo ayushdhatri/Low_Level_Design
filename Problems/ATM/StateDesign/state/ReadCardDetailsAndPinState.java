@@ -2,6 +2,7 @@ package Low_Level_Design.Problems.ATM.StateDesign.state;
 
 import Low_Level_Design.Problems.ATM.StateDesign.Factory.CardManagerFactory;
 import Low_Level_Design.Problems.ATM.StateDesign.api.BackendAPI;
+import Low_Level_Design.Problems.ATM.StateDesign.api.NodeBackendAPI;
 import Low_Level_Design.Problems.ATM.StateDesign.enums.ATMState;
 import Low_Level_Design.Problems.ATM.StateDesign.enums.CardType;
 import Low_Level_Design.Problems.ATM.StateDesign.models.ATM;
@@ -12,9 +13,9 @@ public class ReadCardDetailsAndPinState implements State{
     private final ATM atm;
     private final BackendAPI backendAPI;
 
-    public ReadCardDetailsAndPinState(ATM atm, BackendAPI backendAPI){
+    public ReadCardDetailsAndPinState(ATM atm){
         this.atm = atm;
-        this.backendAPI = backendAPI;
+        this.backendAPI = new NodeBackendAPI();
     }
 
     @Override
@@ -48,13 +49,13 @@ public class ReadCardDetailsAndPinState implements State{
             this.atm.changeState(new ReadingCashWithdrawlDetails(this.atm, this.backendAPI));
         }   
         else{
-            this.atm.changeState(new ReadForTransactionState(atm, backendAPI));
+            this.atm.changeState(new ReadForTransactionState(atm));
         }
         return isCardValid;
     }
 
     @Override
-    public int despenseCash(int transactionId) {
+    public int despenseCash(Card card,int amount, int transactionId) {
         throw new IllegalStateException("Cannot dispense cash while reading card details and pin");
     }
 
@@ -75,7 +76,7 @@ public class ReadCardDetailsAndPinState implements State{
 
     @Override
     public boolean cancelTransaction(int transactionId) {
-        this.atm.changeState(new ReadForTransactionState(atm, backendAPI));
+        this.atm.changeState(new ReadForTransactionState(atm));
         return true;
     }
     

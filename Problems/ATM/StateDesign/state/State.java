@@ -8,7 +8,7 @@ public interface State {
 
     boolean readCardDetailsAndPin(Card card, String pin);// return true if card is valid
 
-    int despenseCash(int transactionId);// returns the amount dispense 
+    int despenseCash(Card card, int amount, int transactionId);// returns the amount dispense 
 
     void ejectCard();
 
