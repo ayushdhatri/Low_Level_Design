@@ -1,21 +1,59 @@
 package Low_Level_Design.Problems.ATM.StateDesign;
 
+import Low_Level_Design.Problems.ATM.StateDesign.enums.CardType;
 import Low_Level_Design.Problems.ATM.StateDesign.models.ATM;
 import Low_Level_Design.Problems.ATM.StateDesign.models.Card;
+import Low_Level_Design.Problems.ATM.StateDesign.models.VisaDebitCard;
 import Low_Level_Design.Problems.ATM.StateDesign.state.ReadForTransactionState;
 import Low_Level_Design.Problems.ATM.StateDesign.state.State;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Welcome to SBI ATM");
+        // Create an atm
 
-        // we need atm, its initial state
-        ATM atm = new ATM("123");// even if we intitalise the atm it is in readyForTransactionPhase
-        Card sbiDebitCard = new Card(123455123123L, 1234, "Ayush","DEBIT" null, "SBI");
-        System.out.println(atm.getAtmState());
-        atm.getAtmState().initTransaction();// here we intiated the transaction
+        ATM atm = new ATM("ATM-BLR-001");
+        Card userCard = new VisaDebitCard(
+            9876543210L, 
+            1234, 
+            "Ayush Solanki", 
+            CardType.DEBIT, 
+            "HDFC Bank"
+        );
+
+        System.out.println("\n========================= STARTING HAPPY PATH TRANSACTION===============");
+        try{
+            // STEP1 : Initiate Transaction
+            System.out.println("Current State : " + atm.getAtmState().getState());
+            int transactionId = atm.getAtmState().initTransaction();
+            System.out.println("Transaction Initiated. TXN Id : " + transactionId);
+
+            // STEP2 : Read Card and PIN
+            System.out.println("Current State : " + atm.getAtmState().getState());
+            boolean isCardValid = atm.getAtmState().readCardDetailsAndPin(userCard, "1234");
+            System.out.println("Card validated");
+
+            // STEP3 : Enter Withdrawl Details
+            System.out.println("Current State : " + atm.getAtmState().getState());
+            int withdrawAmount = 5000;
+            boolean isAmountValid = atm.getAtmState().readCashWithdrawDetails(userCard, transactionId, withdrawAmount);
 
 
+            // STEP4 : Dispense Cash
+            System.out.println("Current State: " + atm.getAtmState().getState());
+            int dispensed = atm.getAtmState().despenseCash(userCard, withdrawAmount, transactionId);
+            System.out.println("Successfully Dispensed: Rs. " + dispensed);
+
+            // STEP 5: Eject Card
+            System.out.println("Current State: " + atm.getAtmState().getState());
+            atm.getAtmState().ejectCard();
+
+            // Back to initial state!
+            System.out.println("Final State: " + atm.getAtmState().getState());
+
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage() + ex.hashCode());
+        }
 
     }
 }
