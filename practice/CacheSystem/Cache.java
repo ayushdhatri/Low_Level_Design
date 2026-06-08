@@ -11,7 +11,7 @@ public class Cache<K, V> {
     private final int capacity;
 
     public Cache(int capacity, EvictionPolicies<K> initialPolicy){
-        this.capacity = capacity;
+        this.capacity = capacity+1;
         this.evictionPolicies = initialPolicy;
         this.storage = new HashMap<>();
     }
