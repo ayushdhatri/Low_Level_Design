@@ -24,6 +24,7 @@ public class Cache<K, V> {
                 K keyToEvict = evictionPolicies.evict();
                 if(keyToEvict != null){
                     storage.remove(keyToEvict);
+                    System.out.println("hje");
                 }
             }
         }
