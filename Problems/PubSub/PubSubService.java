@@ -58,15 +58,17 @@ public class PubSubService {
     public void shutdown(){
         System.out.println("PubSubService Shutting down...");
         deliveryExecutor.shutdown();
-        try{
-            if(!deliveryExecutor.awaitTermination(60, TimeUnit.SECONDS)){
+        try {
+            if(!deliveryExecutor.awaitTermination(60,TimeUnit.SECONDS)){
                 deliveryExecutor.shutdownNow();
             }
         }
         catch(InterruptedException ex){
             deliveryExecutor.shutdownNow();
             Thread.currentThread().interrupt();
+
         }
+        System.out.println("Shutdown successfully");
     }
 
 
