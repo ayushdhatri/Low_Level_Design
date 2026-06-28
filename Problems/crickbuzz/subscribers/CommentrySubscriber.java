@@ -7,9 +7,14 @@ import Low_Level_Design.Problems.crickbuzz.producer.Producer;
 
 public class CommentrySubscriber implements Subscriber {
     private List<String> commentryList;
+    List<Producer> producers;
 
-    public CommentrySubscriber(){
+    public CommentrySubscriber(List<Producer> producers) {
+        this.producers = producers;
         this.commentryList = new ArrayList<>();
+        for(Producer producer : producers){
+            producer.subscibe(this);
+        }
     }
 
     @Override
