@@ -1,5 +1,8 @@
 package Low_Level_Design.Problems.crickbuzz.model;
 
+import java.util.*;
+
+import javax.xml.stream.events.Comment;
 public class Match {
     private String matchId;
     private Team team1;
@@ -10,6 +13,8 @@ public class Match {
     private String status;
     private Innings innnings1;
     private Innings innings2;
+    private List<String> commentry;
+    private boolean isFirstInnings;
 
     public Match(String matchId, Team team1, Team team2, String venue, String date, String time, String status, Innings innnings1, Innings innings2) {
         this.matchId = matchId;
@@ -21,6 +26,8 @@ public class Match {
         this.status = status;
         this.innnings1 = innnings1;
         this.innings2 = innings2;
+        this.commentry = new ArrayList<>();
+        this.isFirstInnings = true;
     }
 
     public String getMatchId() {
@@ -79,6 +86,14 @@ public class Match {
         this.status = status;
     }
 
+    public boolean getIsFirstInnings() {
+        return isFirstInnings;
+    }
+
+    public void setIsFirstInnings(boolean isFirstInnings) {
+        this.isFirstInnings = isFirstInnings;
+    }
+
     public Innings getInnings1() {
         return innnings1;
     }
@@ -93,5 +108,15 @@ public class Match {
 
     public void setInnings2(Innings innings2) {
         this.innings2 = innings2;
+    }
+
+    public void addCommentry(String comment) {
+        if (commentry == null) {
+            commentry = new ArrayList<>();
+        }
+        commentry.add(comment);
+    }
+    public List<String> getCommentry() {
+        return this.commentry;
     }
 }
