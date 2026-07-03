@@ -56,7 +56,11 @@ public class Demo1 {
             return product.getPrice() + 10;
         }).findFirst();
 
-        
+        productList.stream().map(product ->{
+            return product.getPrice() + 20;
+        }).findFirst();
+
+       
 
 
 
@@ -64,3 +68,4 @@ public class Demo1 {
         
     }
 }
+
