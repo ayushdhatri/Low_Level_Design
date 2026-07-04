@@ -1,0 +1,6 @@
+package Low_Level_Design.practice.parkinglot.models.parking;
+
+public enum ParkingSlotStatus {
+    EMPTY,
+    OCCUPIED
+}
