@@ -14,6 +14,7 @@ public class ElectricCarParkingSlot extends ParkingSlot implements ElectricSlot,
 
     @Override
     public void chargeVehicle() {
+        System.out.println("Charging electric car");
         
     }
     

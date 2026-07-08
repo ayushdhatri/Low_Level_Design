@@ -35,3 +35,4 @@ public abstract class Vehicle {
         this.vehicleType = vehicleType;
     }
 }
+    

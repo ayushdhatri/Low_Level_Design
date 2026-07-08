@@ -1,22 +1,26 @@
 package Low_Level_Design.practice.parkinglot.models.pricing;
 
-public class HourlyPricingStrategy implements PricingStategy{
+public class HourlyPricingStrategy implements PricingStrategy{
     private final int pricePerHour;
-    private int numberOfHours;
+    private long numberOfHours;
 
-    public HourlyPricingStrategy(int pricePerHour){
+    public HourlyPricingStrategy(int pricePerHour, long numberOfHoursss){
         this.pricePerHour = pricePerHour;
+        this.numberOfHours = numberOfHours;
     }
 
     @Override
     public int calculatePrice() {
-        return pricePerHour * this.numberOfHours;
+        return (int) ((int)pricePerHour * this.numberOfHours);
     }
 
-    public void setNumberOfHours(int numberOfHours){
+    public void setNumberOfHours(long numberOfHours){
         this.numberOfHours = numberOfHours;
     }
-    
-    
-    
+
+    @Override
+    public PricingStrategyType getPricingStrategyType() {
+       return PricingStrategyType.HOURLY;
+    }
+
 }

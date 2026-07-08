@@ -69,4 +69,9 @@ public abstract class ParkingSlot {
         System.out.println("Vehicle type not supported, Supported Vehicle types are :" + supportedVehicleType);
     }
 
+    public void removeVehicle(){
+        this.status = ParkingSlotStatus.EMPTY;
+        this.vehicle = Optional.empty();
+    }
+
 }

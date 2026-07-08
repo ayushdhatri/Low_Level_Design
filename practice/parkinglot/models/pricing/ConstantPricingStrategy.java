@@ -1,6 +1,6 @@
 package Low_Level_Design.practice.parkinglot.models.pricing;
 
-public class ConstantPricingStrategy implements PricingStategy {
+public class ConstantPricingStrategy implements PricingStrategy {
     private final int price;
 
     public ConstantPricingStrategy(int price){
@@ -10,6 +10,11 @@ public class ConstantPricingStrategy implements PricingStategy {
     @Override
     public int calculatePrice() {
        return price;
+    }
+
+    @Override
+    public PricingStrategyType getPricingStrategyType() {
+        return PricingStrategyType.CONSTANT;
     }
     
     
