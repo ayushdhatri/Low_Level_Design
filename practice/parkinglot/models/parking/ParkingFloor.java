@@ -12,7 +12,9 @@ public class ParkingFloor {
     }
 
     public boolean addParkingSlot(ParkingSlot parkingSlot){
-        return false;
+        parkingSlots.add(parkingSlot);
+        return true;
+
     }
 
     public List<ParkingSlot> getParkingSlots(){

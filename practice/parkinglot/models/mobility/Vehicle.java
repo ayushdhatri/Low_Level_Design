@@ -16,8 +16,8 @@ public abstract class Vehicle {
     }
 
     public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
-    }
+       this.registrationNumber = registrationNumber;
+    } 
 
     public String getColor() {
         return color;
@@ -34,7 +34,4 @@ public abstract class Vehicle {
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
     }
-
-
-
 }
