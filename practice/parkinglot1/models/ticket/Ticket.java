@@ -35,5 +35,9 @@ public class Ticket {
         return this.exitTime;
     }
 
+    public Long getEntryTime(){
+        return this.entryTime;
+    }
+
     
 }
