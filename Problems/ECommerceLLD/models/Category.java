@@ -10,6 +10,5 @@ public class Category {
     public String getCategoryName(){
         return this.name;
     }
-    
-    
+
 }
