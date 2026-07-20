@@ -10,6 +10,5 @@ public class EqualToBrandStrategy implements BrandComparisionStrategy{
 
         
     }
-    
-    
 }
+

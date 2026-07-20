@@ -13,8 +13,6 @@ public class PriceComparisionStrategyFactory {
             return new LessThanStrategy();
         }
         return null;
-
-
     }
     
 }
