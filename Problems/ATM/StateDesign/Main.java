@@ -28,7 +28,7 @@ public class Main {
             System.out.println("Transaction Initiated. TXN Id : " + transactionId);
 
             // STEP2 : Read Card and PIN
-            System.out.println("Current State : " + atm.getAtmState().getState());
+            System.out.println("Current State : " + atm.getAtmState().getState());olpo0[;;['/io-']]
             boolean isCardValid = atm.getAtmState().readCardDetailsAndPin(userCard, "1234");
             System.out.println("Card validated");
 
@@ -49,6 +49,7 @@ public class Main {
 
             // Back to initial state!
             System.out.println("Final State: " + atm.getAtmState().getState());
+            System.out.println("Hello world");
 
         }
         catch(Exception ex){
