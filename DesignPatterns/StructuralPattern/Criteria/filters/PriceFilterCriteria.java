@@ -19,3 +19,4 @@ public class PriceFilterCriteria implements Criteria {
        return products.stream().filter(product -> priceFilterStrategy.compare(price, product.getPrice())).toList();
     }
 }
+

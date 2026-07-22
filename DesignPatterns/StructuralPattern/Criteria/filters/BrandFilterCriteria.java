@@ -2,7 +2,7 @@ package Low_Level_Design.DesignPatterns.StructuralPattern.Criteria.filters;
 
 import java.util.List;
 
-import Low_Level_Design.DesignPatterns.StructuralPattern.Criteria.filters.strategies.BrandFilterStrategy;
+import Low_Level_Design.DesignPatterns.StructuralPattern.Criteria.filters.strategies.BrandFilterStrategy.BrandFilterStrategy;
 import Low_Level_Design.DesignPatterns.StructuralPattern.Criteria.models.Brand;
 import Low_Level_Design.DesignPatterns.StructuralPattern.Criteria.models.Product;
 
