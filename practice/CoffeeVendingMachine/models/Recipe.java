@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import Low_Level_Design.practice.CoffeeVendingMachine.enums.Ingredient;
+
 public class Recipe{
     private final Map<Ingredient, Integer> ingredients;
     public Recipe(){
