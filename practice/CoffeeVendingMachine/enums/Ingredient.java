@@ -1,4 +1,4 @@
-package Low_Level_Design.practice.CoffeeVendingMachine.models;
+package Low_Level_Design.practice.CoffeeVendingMachine.enums;
 
 public enum Ingredient {
     COFFEE_BEANS,

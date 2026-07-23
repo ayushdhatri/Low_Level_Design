@@ -10,7 +10,7 @@ import Low_Level_Design.practice.CoffeeVendingMachine.models.Recipe;
  */
 public class ExtraSugarDecorator extends CoffeeDecorator {
     private final double SUGAR_PRICE = 10.0;
-    private final int SUGAR_QUANTITY = 5;// GRAMS
+    private final int SUGAR_QUANTITY = 10;// GRAMS
     
     public ExtraSugarDecorator(Coffee coffee){
         super(coffee);
