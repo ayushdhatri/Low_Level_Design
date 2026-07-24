@@ -21,7 +21,7 @@ public class CashInventory {
     public Map<Money, Integer> calculateChange(int amount){
         Map<Money, Integer> change = new HashMap<>();
         List<Money> sortedDenominations = new ArrayList<>(cashMap.keySet());
-        sortedDenominations.sort((a,b)-> Integer.compare(a.getValue(), b.getValue()));
+        sortedDenominations.sort((a, b) -> Integer.compare(b.getValue(), a.getValue()));
 
         int remaining = amount;
         for(Money money : sortedDenominations){
