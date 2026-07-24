@@ -5,7 +5,8 @@ import Low_Level_Design.practice.VendingMachine.state.VendingMachineState;
 
 public class VendingMachine {
     private static final VendingMachine INSTANCE = new VendingMachine();
-    public Inventory inventory;
+    private Inventory inventory;
+    public CashInventory cashInventory;
     private VendingMachineState state;
     private int balance ;
     private String selectedItem;
@@ -54,7 +55,7 @@ public class VendingMachine {
     public void setMoneyInserted(int amount){
         this.moneyInserted = amount;
     }
-    
+
     public int getMoneyInserted(){
         return this.moneyInserted;
     }

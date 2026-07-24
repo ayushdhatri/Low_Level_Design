@@ -10,7 +10,7 @@ public abstract class VendingMachineState {
         this.vendingMachine = machine;
     }
     public abstract void insertCoin(Item item);
-    public abstract void selectItem(String code);
+    public abstract void selectItem(Item item);
     public abstract void dispense();
     public abstract void refund();
     

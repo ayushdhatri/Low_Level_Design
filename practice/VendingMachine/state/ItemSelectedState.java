@@ -2,6 +2,7 @@ package Low_Level_Design.practice.VendingMachine.state;
 
 
 import Low_Level_Design.practice.VendingMachine.VendingMachine;
+import Low_Level_Design.practice.VendingMachine.entity.Item;
 
 public class ItemSelectedState extends VendingMachineState {
 
@@ -10,13 +11,12 @@ public class ItemSelectedState extends VendingMachineState {
     }
 
     @Override
-    public void insertCoin(Low_Level_Design.practice.VendingMachine.entity.Item item) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insertCoin'");
+    public void insertCoin(Item item) {
+       
     }
 
     @Override
-    public void selectItem(String code) {
+    public void selectItem(Item item) {
         System.out.println("Iteam already selected");
     }
 
@@ -27,8 +27,8 @@ public class ItemSelectedState extends VendingMachineState {
 
     @Override
     public void refund() {
-        machine.reset();
-        machine.setState(new IdleState(vendingMachine));
+        this.vendingMachine.reset();
+        this.vendingMachine.setState(new IdleState(vendingMachine));
     }
     
 }

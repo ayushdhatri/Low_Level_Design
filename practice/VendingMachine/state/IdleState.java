@@ -18,11 +18,19 @@ public class IdleState extends VendingMachineState {
     }
 
     @Override
-    public void selectItem(String code) {
+    public void selectItem(Item item) {
+
         // here we will select item
+        this.vendingMachine.setSelectedItem(item.getCode());
         // once user selects the item, we recieve as parameter
         // then we ask the inventory here if we have the availalbe stocks
+        if(!this.vendingMachine.getInventory().hasItem(item)){
+            System.out.println("Item is not avaialble");
+            // we need to move to idle state again we cannot move to out of order just because of one product
+            return;
+        }
         // once approved we moved to insert coind state
+        this.vendingMachine.setState(new ItemSelectedState(vendingMachine));
         
     }
 
