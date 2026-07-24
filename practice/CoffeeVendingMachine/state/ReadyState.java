@@ -20,7 +20,7 @@ public class ReadyState implements VendingMachineState {
 
     @Override
     public void dispenseCoffee(CoffeeVendingMachine machine) {
-        System.out.println("Please select and pay first");
+        // Here we need inventory
     }
 
     @Override
