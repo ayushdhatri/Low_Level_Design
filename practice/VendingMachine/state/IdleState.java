@@ -1,6 +1,7 @@
 package Low_Level_Design.practice.VendingMachine.state;
 
 import Low_Level_Design.practice.VendingMachine.VendingMachine;
+import Low_Level_Design.practice.VendingMachine.Money.Money;
 import Low_Level_Design.practice.VendingMachine.entity.Item;
 
 /**
