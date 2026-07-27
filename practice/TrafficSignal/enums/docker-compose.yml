@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # 1. API Gateway (Entry point for client requests)
+  api-gateway:
+    build: ./api-gateway
+    container_name: api_gateway
+    ports:
+      - "8080:8080" # Exposed to your local machine
+    environment:
+      - AUTH_SERVICE_URL=http://auth_service:4000
+      - PAYMENT_SERVICE_URL=http://payment_service:5000
+      - NOTIFICATION_SERVICE_URL=http://notification_service:6000
+    depends_on:
+      - auth-service
+      - payment-service
+      - notification-service
+    networks:
+      - app-network
+
+  # 2. Authentication Microservice
+  auth-service:
+    build: ./auth-service
+    container_name: auth_service
+    environment:
+      - PORT=4000
+      - DB_URL=mongodb://mongo_db:27017/auth_db
+    depends_on:
+      - mongo-db
+    networks:
+      - app-network
+
+  # 3. Payment Microservice
+  payment-service:
+    build: ./payment-service
+    container_name: payment_service
+    environment:
+      - PORT=5000
+      - DB_URL=mongodb://mongo_db:27017/payment_db
+    depends_on:
+      - mongo-db
+    networks:
+      - app-network
+
+  # 4. Notification Microservice
+  notification-service:
+    build: ./notification-service
+    container_name: notification_service
+    environment:
+      - PORT=6000
+    networks:
+      - app-network
+
+  # Shared Database Dependency
+  mongo-db:
+    image: mongo:latest
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app-network
+
+# Shared Bridge Network & Persistent Storage
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo_data:
