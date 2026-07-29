@@ -9,10 +9,10 @@ public class IdleState implements ElevatorState {
     @Override
     public void move(Elevator elevator) {
         // here we can move either up or down depending on the request
-        if(!elevator.getUpRequest().isEmpty()){
+        if(!elevator.getUpRequests().isEmpty()){
             elevator.setState(new MovingUpState());   
         }
-        else if(!elevator.getDownRequest().isEmpty()){
+        else if(!elevator.getDownRequests().isEmpty()){
             elevator.setState(new DownMovingState());
         }
         //else stay idle
@@ -28,8 +28,6 @@ public class IdleState implements ElevatorState {
         {
             elevator.getDownRequests().add(request.getTargetFloor());
         }
-
-            
     }
 
     @Override

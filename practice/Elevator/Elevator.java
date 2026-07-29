@@ -29,7 +29,7 @@ public class Elevator implements Runnable {
     public void move(){
         state.move(this);
     }
-    
+
     public Direction getDirection(){
         return this.state.getDirection();
     }
@@ -48,6 +48,19 @@ public class Elevator implements Runnable {
 
     public void stopElevator(){
         this.isRunning = false;
+    }
+
+    public int getCurrentFloor(){
+        return this.currentFloor.get(); 
+    }
+
+    public void setCurrentFloor(int floor){
+        this.currentFloor.set(floor);
+
+    }
+
+    public int getId(){
+        return this.id;
     }
 
     @Override
