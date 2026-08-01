@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import JavaDesignPattern.ChainOfResponsibility.EscalateSystem.Request;
 import Low_Level_Design.practice.Elevator.Enums.Direction;
 import Low_Level_Design.practice.Elevator.observer.ElevatorObserver;
 import Low_Level_Design.practice.Elevator.state.ElevatorState;
@@ -72,6 +73,10 @@ public class Elevator implements Runnable {
 
     public int getId(){
         return this.id;
+    }
+
+    public void addRequest(Low_Level_Design.practice.Elevator.model.Request request){
+       this.state.addRequest(this, request);
     }
 
     @Override

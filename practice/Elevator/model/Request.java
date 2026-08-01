@@ -8,11 +8,13 @@ public class Request {
     private final Direction direction; // Primarily for External requests
     private final RequestSource source;
 
-    public Request(int targetFloor, Direction direction, RequestSource source) {
+    public Request(int targetFloor, Direction idle, RequestSource source) {
         this.targetFloor = targetFloor;
-        this.direction = direction;
+        this.direction = idle;
         this.source = source;
     }
+
+   
 
     public int getTargetFloor() {
         return targetFloor;
