@@ -38,6 +38,13 @@ public class MovingUpState implements ElevatorState {
             }
         }
         // External Request
+        if(request.getDirection() == Direction.UP && request.getTargetFloor() >= elvator.getCurrentFloor()){
+            elvator.getUpRequests().add(request.getTargetFloor());
+        }
+        else if(request.getDirection() == Direction.DOWN){
+            elvator.getDownRequests().add(request.getTargetFloor());
+        }
+
         
         
     }

@@ -13,7 +13,7 @@ public class IdleState implements ElevatorState {
             elevator.setState(new MovingUpState());   
         }
         else if(!elevator.getDownRequests().isEmpty()){
-            elevator.setState(new DownMovingState());
+            elevator.setState(new MovingDownState());
         }
         //else stay idle
 
@@ -21,12 +21,12 @@ public class IdleState implements ElevatorState {
 
     @Override
     public void addRequest(Elevator elvator, Request request) {
-        if(request.getTargetFloor() > elevator.getCurrentFloor()){
-            elevator.getUpRequests().add(request.getTargetFloor());
+        if(request.getTargetFloor() > elvator.getCurrentFloor()){
+            elvator.getUpRequests().add(request.getTargetFloor());
         }
-        else if(request.getTargetFloor() > elevator.getCurrentFloor())
+        else if(request.getTargetFloor() > elvator.getCurrentFloor())
         {
-            elevator.getDownRequests().add(request.getTargetFloor());
+            elvator.getDownRequests().add(request.getTargetFloor());
         }
     }
 
