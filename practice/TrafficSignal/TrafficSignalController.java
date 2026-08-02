@@ -2,6 +2,7 @@ package Low_Level_Design.practice.TrafficSignal;
 
 import java.util.Map;
 import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -18,7 +19,7 @@ import Low_Level_Design.practice.TrafficSignal.state.intersection.NormalOperatin
 public class TrafficSignalController implements EmergencyObserver {
     private final Map<Direction, Road> roads;
     private final Map<Direction, Map<LightColor, Integer>> signalDurations;
-    private final ScheduledExecutorService schedular;
+    private final ExecutorService schedular;
 
     private IntersectionState currIntersectionState;
     private boolean isNorthSouthActive = true;
