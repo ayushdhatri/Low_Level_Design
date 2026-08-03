@@ -7,13 +7,13 @@ public enum LogLevel{
     ERROR(4),
     FATAL(5);
 
-    private final int level;
-    LogLevel(int level){
-        this.level = level;
+    private final int severity;
+    LogLevel(int severity){
+        this.severity = severity;
     }
 
     public boolean isGreaterOrEqual(LogLevel other){
-        return this.level >= other.level;
+        return this.severity >= other.severity;
     }
-    
+
 }
