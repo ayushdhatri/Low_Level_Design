@@ -14,7 +14,7 @@ public class LogMessage {
         this.message = message;
         this.level = level;
         this.timeStamp = LocalDateTime.now();
-        this.threadName = Thread.currentThread().getName();
+        this.threadName = Thread.currentThread().getName() + "ayush";
     }
     
     public String getMessage(){
