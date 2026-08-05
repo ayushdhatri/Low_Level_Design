@@ -32,7 +32,6 @@ public class FileAppender implements LogAppender {
             }
             catch(IOException ex){
                 System.out.println("Failed to write log to file : " + ex.getMessage());
-
             }
 
         }
@@ -40,7 +39,7 @@ public class FileAppender implements LogAppender {
 
     @Override
     public void setFormatter(LogFormatter formatter) {
-       
+       this.formatter = formatter;
     }
     
     
