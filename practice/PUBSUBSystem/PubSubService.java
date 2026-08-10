@@ -19,6 +19,7 @@ public class PubSubService {
     }
 
     public static PubSubService getInstance(){
+        System.out.println("Returning instance");
         return INSTANCE;
     }
 
