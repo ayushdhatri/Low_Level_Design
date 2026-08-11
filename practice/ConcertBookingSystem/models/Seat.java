@@ -36,5 +36,9 @@ public class Seat {
     public SeatStatusType getSeatStatusType(){
         return this.status;
     }
+
+    public void setSeatStatusType(SeatStatusType status){
+        this.status = status;
+    }
     
 }
