@@ -41,7 +41,8 @@ public class PubSubService {
 
         }catch(InterruptedException e){
             deliveryExecutorService.shutdownNow();
-            Thread.currentThread().interrupt();;
+            Thread.currentThread().interrupt();
+            System.out.println("Gracefully shutdown");
         }
     }
     
