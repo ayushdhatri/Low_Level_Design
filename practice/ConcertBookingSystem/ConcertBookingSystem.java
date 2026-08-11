@@ -20,6 +20,7 @@ import Low_Level_Design.practice.ConcertBookingSystem.observer.EmailNotification
 import Low_Level_Design.practice.ConcertBookingSystem.observer.EventNotifier;
 import Low_Level_Design.practice.ConcertBookingSystem.observer.SMSNotificationObserver;
 import Low_Level_Design.practice.ConcertBookingSystem.state.Hold;
+import Low_Level_Design.practice.ConcertBookingSystem.strategy.PaymentStrategy;
 
 public class ConcertBookingSystem {
     private final Map<String, Concert> concerts = new ConcurrentHashMap<>();
@@ -93,6 +94,67 @@ public class ConcertBookingSystem {
             lock.unlock();
         }
     }
+
+    public Booking confirmBooking(String holdId, PaymentStrategy paymentStrategy){
+        Hold hold = activeHolds.get(holdId);
+        if(hold == null || hold.isExpired()){
+            if(hold != null) cancelHold(holdId);
+            throw new IllegalStateException("Hold has expired or is invalid");
+        }
+        ReentrantLock lock = concertLocks.get(hold.getConcertId());
+        double totalAmount = hold.calculateTotal();
+        boolean paymentSuccess = paymentProcessor.processPayment(paymentStrategy, totalAmount);
+
+        if(!paymentSuccess){
+            cancelHold(holdId);
+            throw new RuntimeException("Payment Failed. Reservation released.");
+        }
+        lock.lock();
+        try {
+            // Transition seats HELD -> BOOKED
+            for (Seat seat : hold.getHeldSeats()) {
+                seat.setSeatStatusType(SeatStatusType.BOOKED);
+            }
+
+            String bookingId = "BK_" + UUID.randomUUID().toString().substring(0, 8);
+            Booking booking = new Booking(bookingId, hold.getUser(), hold.getConcertId(), hold.getHeldSeats(), totalAmount);
+            
+            bookings.put(bookingId, booking);
+            hold.getUser().addBooking(booking);
+            activeHolds.remove(holdId);
+
+            System.out.println("[System] Booking Confirmed successfully! ID: " + bookingId);
+            
+            // Notify Observers
+            notifier.update(booking);
+
+            return booking;
+        } finally {
+            lock.unlock();
+        }
+
+    }
+
+    private void cancelHold(String holdId){
+        Hold hold = activeHolds.get(holdId);
+        if(hold != null){
+            ReentrantLock lock = concertLocks.get(hold.getConcertId());
+            lock.lock();
+                try {
+                for(Seat seat : concerts.get(hold.getConcertId()).getConcertSeats()){
+                    if(hold.getHeldSeats().contains(seat)){
+                        // flip its property from held to booking 
+                        seat.setSeatStatusType(SeatStatusType.AVAILABLE);
+                    }
+                }
+                System.out.println("[System] Cancelled hold: " + holdId + ". Seats reverted to AVAILABLE.");
+            } finally{
+                lock.unlock();
+            }
+        }
+    }
+
+
 
 
 

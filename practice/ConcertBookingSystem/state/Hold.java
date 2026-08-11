@@ -31,5 +31,9 @@ public class Hold {
     public String getConcertId() { return concertId; }
     public List<Seat> getHeldSeats() { return heldSeats; }
 
+    public double calculateTotal() {
+        return heldSeats.stream().mapToDouble(seat -> seat.getSeatPrice()).sum();
+    }
+
     
 }
