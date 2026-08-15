@@ -12,7 +12,7 @@ public enum SeatType{
         this.price = ticketPrice;
     }
 
-    double getTicketPrice(){
+    public double getTicketPrice(){
         return this.price;
     }
     
