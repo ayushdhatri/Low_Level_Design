@@ -4,9 +4,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import Low_Level_Design.practice.MovieBooking.models.Bookings.Booking;
+
 public class User extends Person {
     private final String userId;
-    private final Location location;
+    private Location location;
     private final LocalDate dob;
     private final List<Booking> userBookings = new ArrayList<>();
 
