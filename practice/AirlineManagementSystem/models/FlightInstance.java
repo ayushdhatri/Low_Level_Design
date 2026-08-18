@@ -22,5 +22,13 @@ public class FlightInstance{
         }
     }
 
+    public String getFlightInsId(){
+        return this.flightInsId;
+    }
+
+    public final Map<String, FlightSeat> getSeatMap(){
+        return this.seatMap;
+    }
+
 
 }
