@@ -76,6 +76,7 @@ public class FlightBookingService {
             activeHolds.remove(holdId);
             System.out.println("[SUCCESS] Booking confirmed! PNR: "  + " for " + hold.getUser().getName());
             System.out.println("done with booking");
+            System.out.println("done with booking");
             return booking;
         } finally {
             lock.unlock();
