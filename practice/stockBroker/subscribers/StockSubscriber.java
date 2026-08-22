@@ -27,7 +27,7 @@ public class StockSubscriber implements Subscribers {
         else{
             System.out.println("Ignoring old data for stock " + symbol);
         }
-
+        System.out.println("Stock price update for stock with symbol " + symbol + " with listed price as : " + value.getAmount());
             
     }
     

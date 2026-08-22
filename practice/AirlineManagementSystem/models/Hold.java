@@ -9,6 +9,7 @@ public class Hold {
     private User user;
     private final List<FlightSeat> requestSeats;
     private LocalDateTime expiresAt;
+    public Object flightInsId;
 
     public Hold(String holdId, User user, List<FlightSeat> seats, int ttl){
         this.holdId = holdId;
@@ -31,6 +32,11 @@ public class Hold {
 
     public List<FlightSeat> getRequestedSeats(){
         return this.requestSeats;
+    }
+
+    public double getTotal() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getTotal'");
     }
     
 }
