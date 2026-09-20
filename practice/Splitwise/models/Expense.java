@@ -24,7 +24,7 @@ public class Expense {
         this.amount = expenseBuilder.amount;
         this.paidBy = expenseBuilder.paidBy;
         this.desc = expenseBuilder.desc;
-        this.splits = expenseBuilder.splitStrategy();
+        this.splits = expenseBuilder.splitStrategy.split(amount, expenseBuilder.participants, expenseBuilder.splitValues);
         timestamp = LocalDateTime.now();
     }
 
@@ -36,6 +36,7 @@ public class Expense {
         private User paidBy;
         private List<User> participants;
         private SplitStrategy splitStrategy;
+        private List<Double> splitValues;
 
         public ExpenseBuilder setId(String id){
             this.Id = id;
@@ -49,7 +50,7 @@ public class Expense {
         public ExpenseBuilder setPaidBy(User paidBy) { this.paidBy = paidBy; return this; }
         public ExpenseBuilder setParticipants(List<User> participants) { this.participants = participants; return this; }
         public ExpenseBuilder setSplitStrategy(SplitStrategy splitStrategy) { this.splitStrategy = splitStrategy; return this; }
-
+        public ExpenseBuilder setSplitValues(List<Double> splitValues){ this.splitValues = splitValues; return this;}
         
         public Expense build(){
             if(splitStrategy == null){
