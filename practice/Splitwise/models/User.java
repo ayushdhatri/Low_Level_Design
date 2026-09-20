@@ -4,6 +4,8 @@ package Low_Level_Design.practice.Splitwise.models;
 // here we can even user builder pattern, but since number of parameter are very less, but in future, if 
 // number of variables increase, we can have builder pattern in safe.
 public class User {
+    private final String userId;
+
     private final String name;
     
     private String email;
@@ -14,7 +16,8 @@ public class User {
     // we can keep member varialbes public to speed up the process of coding to save some time
     // but as of now I am implementing the code completely
 
-    User(String name, String mobileNumber){
+    User(String userId, String name, String mobileNumber){
+        this.userId = userId;
         this.name = name;
         this.mobileNumber = mobileNumber;
     }
@@ -29,6 +32,10 @@ public class User {
 
     public String getMobileNumber(){
         return this.mobileNumber;
+    }
+
+    public String getUserId(){
+        return this.userId;
     }
 
     
