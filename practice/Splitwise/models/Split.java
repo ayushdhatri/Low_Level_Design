@@ -10,4 +10,12 @@ public class Split {
         this.amount = amount;
     }
 
+    public User getUser(){
+        return this.user;
+    }
+
+    public double getAmount(){
+        return this.amount;
+    }
+
 }

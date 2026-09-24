@@ -19,6 +19,30 @@ public class Expense {
     private final List<Split> splits;
     private final LocalDateTime timestamp;
 
+    public String getId(){
+        return this.Id;
+    }
+
+    public String getDesc(){
+        return this.desc;
+    }
+
+    public double getAmount(){
+        return this.amount;
+    }
+
+    public User getPaidBy(){
+        return this.paidBy;
+    }
+
+    public List<Split> getSplits(){
+        return this.splits;
+    }
+
+    public LocalDateTime getTimeStamp(){
+        return this.timestamp;
+    }
+
     private Expense(ExpenseBuilder expenseBuilder){
         this.Id = expenseBuilder.Id;
         this.amount = expenseBuilder.amount;
@@ -59,11 +83,10 @@ public class Expense {
             return new Expense(this);
 
         }
-
-
-
-
     }
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 package Low_Level_Design.practice.Splitwise.models;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -27,6 +27,7 @@ public class Group {
         this.groupName = groupName;
         this.adminId = adminId;
         this.users = groupUsers;
+        this.expenses = new ArrayList<>();
     }
 
     public String getGroupId(){
