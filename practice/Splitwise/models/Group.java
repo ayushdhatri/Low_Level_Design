@@ -62,6 +62,10 @@ public class Group {
         return this.adminId;
     }
 
+    public List<Expense> getAllExpense(){
+        return this.expenses;
+    }
+
 
 
     

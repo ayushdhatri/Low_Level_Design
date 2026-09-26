@@ -47,7 +47,7 @@ public class BalanceService {
                 System.out.println("User " + entry.getKey() + " owes " + userId + " : " + amount);
             }
             else{
-                System.out.println("User " + userId + " owes " + entry + " : " + amount);
+                System.out.println("Users " + userId + " owes " + entry + " : " + amount);
             }
         }
     }
