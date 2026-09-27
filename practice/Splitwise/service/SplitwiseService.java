@@ -1,5 +1,6 @@
 package Low_Level_Design.practice.Splitwise.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,14 +20,14 @@ public class SplitwiseService {
         if(group == null){
             throw new ResourceNotFound(groupId);
         }
-        List<Transaction> transactions;
+        List<Transaction> transactions = new ArrayList<>();
         Map<String, Double> netBalance = new HashMap<>();
         
         for(Expense expense : group.getAllExpense()){
             String paidBy = expense.getPaidBy().getUserId();
 
             for(Split split : expense.getSplits()){
-                
+
                 
             }
         }
