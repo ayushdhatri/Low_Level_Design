@@ -26,7 +26,7 @@ public class SplitwiseService {
         for(Expense expense : group.getAllExpense()){
             String paidBy = expense.getPaidBy().getUserId();
 
-            for(Split split : expense.getSplits()){
+            for(Split split1 : expense.getSplits()){
 
                 
             }
