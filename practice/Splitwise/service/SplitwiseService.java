@@ -21,7 +21,7 @@ public class SplitwiseService {
             throw new ResourceNotFound(groupId);
         }
         List<Transaction> transactions = new ArrayList<>();
-        Map<String, Double> netBalance = new HashMap<>();
+        Map<String, Double> netBalancee = new HashMap<>();
         
         for(Expense expense : group.getAllExpense()){
             String paidBy = expense.getPaidBy().getUserId();
