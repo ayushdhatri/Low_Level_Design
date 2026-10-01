@@ -13,7 +13,7 @@ public class Transaction {
 
     @Override 
     public String toString(){
-        return from.getName() + " should pay " + to.getName() + " Amount : " + amount;
+        return from.getName() + " should pay from " + to.getName() + " Amount : " + amount;
     }
 
     
