@@ -1,6 +1,7 @@
 package Low_Level_Design.Problems.DigitalWallet.models;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +31,7 @@ public class Account {
         this.accountNumber = accountNumber;
         this.currency = currency;
         this.balance = BigDecimal.ZERO;
+        this.userTransaction = new ArrayList<>();
     }
 
     public void addPaymentMethod(IPaymentMethod pm){
@@ -38,7 +40,13 @@ public class Account {
     public void removePaymentMethod(String id) { paymentMethods.remove(id); }
     public IPaymentMethod getPaymentMethod(String id) { return paymentMethods.get(id); }
     public BigDecimal getBalance(){
-        return this.balance;
+        lock.lock();
+        try{
+            return this.balance;
+        }
+        finally{
+            lock.unlock();
+        }
     }
 
     public List<Transaction> getAllTransaction(){

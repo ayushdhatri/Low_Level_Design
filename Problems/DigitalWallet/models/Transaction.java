@@ -44,6 +44,15 @@ public class Transaction {
         return this.amount;
     }
 
+    public void markSuccess(){
+        this.status = TransactionStatus.SUCCESS;
+    }
+
+    public void markFailed(){
+        this.status = TransactionStatus.FAILED;
+    }
+    
+
 
 
 
