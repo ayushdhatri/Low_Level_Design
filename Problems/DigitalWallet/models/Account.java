@@ -2,11 +2,14 @@ package Low_Level_Design.Problems.DigitalWallet.models;
 
 import java.math.BigDecimal;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.locks.ReentrantLock;
 
 import Low_Level_Design.Problems.DigitalWallet.enums.Currency;
 import Low_Level_Design.Problems.DigitalWallet.exceptions.InsufficientBalance;
+import Low_Level_Design.Problems.DigitalWallet.services.strategy.IPaymentMethod;
 
 
 public class Account {
@@ -19,6 +22,8 @@ public class Account {
 
     List<Transaction> userTransaction;
 
+    private final Map<String, IPaymentMethod> paymentMethods = new HashMap<>();
+
     private final ReentrantLock lock = new ReentrantLock();
 
     public Account(String accountNumber, Currency currency){
@@ -27,6 +32,11 @@ public class Account {
         this.balance = BigDecimal.ZERO;
     }
 
+    public void addPaymentMethod(IPaymentMethod pm){
+        paymentMethods.put(pm.getId(), pm);
+    }
+    public void removePaymentMethod(String id) { paymentMethods.remove(id); }
+    public IPaymentMethod getPaymentMethod(String id) { return paymentMethods.get(id); }
     public BigDecimal getBalance(){
         return this.balance;
     }
