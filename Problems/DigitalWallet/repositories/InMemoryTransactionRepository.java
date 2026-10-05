@@ -11,16 +11,15 @@ public class InMemoryTransactionRepository implements ITransactionRepository {
 
     @Override
     public void save(Transaction transaction) {
-       this.accountMap.put(transaction.getId(), transaction);
+        this.accountMap.put(transaction.getId(), transaction);
     }
 
     @Override
     public List<Transaction> findByAccountId(String accId) {
-       List<Transaction> transactions = accountMap.values().stream().filter(transaction -> 
-                                                                        transaction.getFromAcc().equals(accId)|| transaction.getToAcc().equals(accId))
-                                                                        .toList();
+        List<Transaction> transactions = accountMap.values().stream()
+                .filter(transaction -> transaction.getFromAcc().equals(accId) || transaction.getToAcc().equals(accId))
+                .toList();
         return transactions;
     }
-    
-    
+
 }
