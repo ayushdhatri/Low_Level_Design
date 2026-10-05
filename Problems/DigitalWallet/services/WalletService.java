@@ -77,8 +77,15 @@ public class WalletService {
         }
         
         if(sourceAccount.getCurrency() != currency){
-            amount = 
+            amount = CurrencyConverterService.convert(amount, sourceAccount.getCurrency(), desinationAccount.getCurrency());
         }
+        sourceAccount.debit(amount);
+
+        desinationAccount.credit(amount);
+
+        Transaction txn = new Transaction(fromId, toId, amount);
+        transactionRepository.save(txn);
+        
 
     }
 
