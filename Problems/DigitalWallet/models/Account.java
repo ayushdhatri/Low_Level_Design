@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
 import Low_Level_Design.Problems.DigitalWallet.enums.Currency;
@@ -23,7 +24,7 @@ public class Account {
 
     List<Transaction> userTransaction;
 
-    private final Map<String, IPaymentMethod> paymentMethods = new HashMap<>();
+    private final Map<String, IPaymentMethod> paymentMethods = new ConcurrentHashMap<>();
 
     private final ReentrantLock lock = new ReentrantLock();
 
@@ -39,49 +40,40 @@ public class Account {
     }
     public void removePaymentMethod(String id) { paymentMethods.remove(id); }
     public IPaymentMethod getPaymentMethod(String id) { return paymentMethods.get(id); }
-    public BigDecimal getBalance(){
-        lock.lock();
-        try{
+
+    public synchronized BigDecimal getBalance(){
+     
+       
             return this.balance;
-        }
-        finally{
-            lock.unlock();
-        }
+    
     }
 
     public List<Transaction> getAllTransaction(){
         return this.userTransaction;
     }
 
-    public void credit(BigDecimal amount){
-        lock.lock();
-        try{
-            if(amount.signum() < 0){
-                throw new IllegalArgumentException("Negative Amount cannot be credited");
-            }
-            this.balance = this.balance.add(amount);
-            System.out.println("Amount Credit successfully");
+    public synchronized void credit(BigDecimal amount){
+        
+        if(amount.signum() < 0){
+            throw new IllegalArgumentException("Negative Amount cannot be credited");
         }
-        finally{
-            lock.unlock();
-        }
+        this.balance = this.balance.add(amount);
+        System.out.println("Amount Credit successfully");
+       
+      
     }
 
-    public void debit(BigDecimal amount){
+    public synchronized void debit(BigDecimal amount){
         // first we need to verify if this is possible or not
-        lock.lock();
-        try{
-            if(this.balance.compareTo(amount) >=0){
-                this.balance = this.balance.subtract(amount);
-            }
-            else{
-                throw new InsufficientBalance("Insufficinent balance! Cannot debit!");
+      
+        if(this.balance.compareTo(amount) >=0){
+            this.balance = this.balance.subtract(amount);
+        }
+        else{
+            throw new InsufficientBalance("Insufficinent balance! Cannot debit!");
 
-            }
         }
-        finally{
-            lock.unlock();
-        }
+        
     }
 
     public String getAccountNumber(){
@@ -92,12 +84,13 @@ public class Account {
         return this.currency;
     }
 
-
-
-
-
-    
-
-
-    
 }
+
+
+
+
+    
+
+
+    
+

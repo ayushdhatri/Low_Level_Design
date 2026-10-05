@@ -23,6 +23,7 @@ public class CreditCard implements IPaymentMethod{
     @Override
     public void charge(BigDecimal amount) {
        // here we make call to make api which transfer the amount to user wallet
+       System.out.println("Money debited from credit card successfuly!");
         
     }
 
