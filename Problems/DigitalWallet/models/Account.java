@@ -2,7 +2,7 @@ package Low_Level_Design.Problems.DigitalWallet.models;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class Account {
 
     private final ReentrantLock lock = new ReentrantLock();
 
-    public Account(String accountNumber, Currency currency){
+    public Account(String accountNumber, Currency currency ){
         this.accountNumber = accountNumber;
         this.currency = currency;
         this.balance = BigDecimal.ZERO;
