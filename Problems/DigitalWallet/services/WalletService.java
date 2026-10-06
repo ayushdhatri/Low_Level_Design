@@ -73,7 +73,7 @@ public class WalletService {
         Account sourceAccount = accountRepository.findById(fromId);
         Account desinationAccount = accountRepository.findById(toId);
         if (sourceAccount == null || desinationAccount == null) {
-            throw new IllegalStateException("Either of the account is invalid");
+            throw new IllegalStateException("Either of the account is invalsid");
         }
         
         if(sourceAccount.getCurrency() != currency){
@@ -85,7 +85,7 @@ public class WalletService {
 
         Transaction txn = new Transaction(fromId, toId, amount);
         transactionRepository.save(txn);
-        
+
 
     }
 
