@@ -16,7 +16,7 @@ public class Account {
 
     public synchronized void deposit(BigDecimal amount) {
         if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("Deposit amount must be greater than zero.");
+            throw new IllegalArgumentException("Deposit amounts must be greater than zero.");
         }
         this.balance = this.balance.add(amount);
     }
