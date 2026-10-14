@@ -3,7 +3,9 @@ package Low_Level_Design.Problems.StockBroker.models;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+import Low_Level_Design.Problems.StockBroker.enums.OrderSide;
 import Low_Level_Design.Problems.StockBroker.enums.OrderStatus;
+import Low_Level_Design.Problems.StockBroker.enums.OrderType;
 
 // We will be using builder pattern to build the object as we have so many member variable to initialize and need to be validated
 // before creating order.
@@ -24,13 +26,20 @@ public class Order {
 
     private OrderStatus orderStatus;
 
-    public Order(BigDecimal price,Integer quantity, String userId, String stockId){
+    private OrderType orderType;
+
+    private OrderSide orderSide;
+
+    public Order(BigDecimal price,Integer quantity, String userId, String stockId, OrderType orderType, OrderSide orderSide
+    ){
         this.orderId = UUID.randomUUID().toString();
         this.price = price;
         this.quantity = quantity;
         this.userId = userId;
         this.stockId = stockId;
         this.orderStatus = OrderStatus.PENDING;
+        this.orderType = orderType;
+        this.orderSide = orderSide;
     }
 
     public String getOrderId(){
@@ -56,4 +65,13 @@ public class Order {
     public OrderStatus getOrderStatus(){
         return this.orderStatus;
     }
+
+    public OrderType getOrderType(){
+        return this.orderType;
+    }
+
+    public OrderSide getOrderSide(){
+        return this.orderSide;
+    }
+    
 }
