@@ -21,6 +21,7 @@ public class Account {
     private ReentrantLock lock;
     private Portfolio portfolio;
     private List<Transaction> transactions;
+    private List<Order> activeOrders;
 
 
     public Account(){
@@ -29,6 +30,15 @@ public class Account {
         this.blockFunds = BigDecimal.ZERO;
         this.lock = new ReentrantLock();
         this.transactions = new ArrayList<>();
+        this.activeOrders = new ArrayList<>();
+    }
+
+    public void addOrder(Order order){
+        this.activeOrders.add(order);
+    }
+
+    public List<Order> getActiveOrders(){
+        return this.activeOrders;
     }
 
     public String getAccountId(){
