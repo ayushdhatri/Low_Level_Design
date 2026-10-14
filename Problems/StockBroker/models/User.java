@@ -31,9 +31,4 @@ public class User {
         return this.account;
     }
 
-    public Portfolio getPortfolio(){
-        return this.portfolio;
-    }
-
-    
 }
