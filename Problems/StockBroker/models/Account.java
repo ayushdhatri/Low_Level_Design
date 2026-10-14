@@ -20,7 +20,7 @@ public class Account {
     private BigDecimal blockFunds;
     private ReentrantLock lock;
     private Portfolio portfolio;
-    private List<Transactions> transactions;
+    private List<Transaction> transactions;
 
 
     public Account(){
@@ -113,7 +113,7 @@ public class Account {
         return this.lock;
     }
 
-    public   List<Transactions> getTransactions(){
+    public   List<Transaction> getTransactions(){
         return this.transactions;
 
     }
