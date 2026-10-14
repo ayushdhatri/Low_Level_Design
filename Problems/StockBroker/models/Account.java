@@ -31,6 +31,10 @@ public class Account {
         this.transactions = new ArrayList<>();
     }
 
+    public String getAccountId(){
+        return this.accountId;
+    }
+
     public void credit(BigDecimal amount){
         // at each step we need to verify and throw error
         lock.lock();

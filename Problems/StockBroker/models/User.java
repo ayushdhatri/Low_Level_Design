@@ -6,7 +6,7 @@ public class User {
     private final String userId;
     private String mobNum;
     private String name;
-    private Account account;
+    private final Account account;
   
     
     public User(String name, String mobNum, Account account){
