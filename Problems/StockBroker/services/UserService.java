@@ -21,7 +21,7 @@ public class UserService implements IUserService {
     public User getUser(String userId) {
         User user = userMap.getOrDefault(userId, null);
         if(null != user){
-            throw new IllegalStateException("User not found");
+            throw new IllegalStateException("User not foundd");
         }
         return user;
     }
