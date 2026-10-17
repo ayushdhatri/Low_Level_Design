@@ -11,12 +11,16 @@ public class RateLimiter {
     Map<String, Endpoint> endPointMapper = new ConcurrentHashMap<>();// maps endpoint string to endPoint class
     Map<String, 
     
-    Response isAllowed(Request request){
+    Response handleRequest(Request request){
 
-        
+
 
 
         return null;
+    }
+
+    private Response isAllowed(){
+        
     }
 
 }

@@ -19,5 +19,14 @@ public class Bucket {
         return this.lastRefillTime;
     }
 
+    public void setCurrentToken(double token){
+        this.token = token;
+    }
+
+    public void setLastRefillTime(LocalDateTime timeStampAfterRefill){
+        this.lastRefillTime = timeStampAfterRefill;
+    }
+    
+
 
 }
