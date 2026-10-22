@@ -5,7 +5,7 @@ import Java.JavaLearnings.PART4.ExceptionalHandling.Exceptions.RunTime.Runtime;
 public class AlgoTypeNotFound extends RuntimeException {
     
     public AlgoTypeNotFound(String algoType){
-        super("Algo with type : " + algoType + " not found");
+        super("Algo with type : " + algoType + " not foundssss");
     }
     
 }
