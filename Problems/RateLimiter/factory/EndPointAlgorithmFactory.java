@@ -12,7 +12,7 @@ public class EndPointAlgorithmFactory {
             case AlgoType.TOKEN_BUCKET:
                 return new TokenBucketAlgorithm((TokenBucketConfig)config);
             default:
-                throw new IllegalStateException("Configuration not found for this type of algorithm");
+                throw new IllegalStateException("Configuratiosn not found for this type of algorithm");
         }
     }
 }
