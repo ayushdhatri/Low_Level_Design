@@ -63,11 +63,42 @@ Lets draw the unahppy path:
 Step4 : 
 1) Agents deposit package to the system 
 2) System assigns the free smallest compartment satisfying its dimensions and system locks the lockers and generate a unique ID and notifies the customer
-3) Custom upon receving notification visit the locker collects the parcel.
+3) Customer upon receving notification visit the locker collects the parcel.
 4) Sytem frees the compartment and mark the delivery complete 
 
 OUT Of scope:
 Lets say once product is assigned to locker and customer does not come to pick it , it should be either again pick up by customer agent and should move to 
 some common storehouse(which is just meant for this parcel to be collected which are undeliverd. and slowly and gradely should mark them cancel if custerom does not pick it)
 
+
+Retry :
+Lets understand the flow how it happens:
+1) customer places a order.
+2) customer chooses its locker location( we can keep this discuss out of the our requirements)
+3) Once the product reaches the warehouse, delivery guy picks the parcel and go the allocated locker location.
+4) Once he reaches the location, interacts with our locker system 
+4) LockerSystem allocates the locker to that delivery agent which is free 
+5) Once the package is delivered inside a locker user gets notified with a unique code 
+6) This unique code has a validity of lets say 7 days, after which the code get expired
+7) user collects the parcel by puttingh his credentials
+8) Locker get free for next package .
+
+
+How to do this?
+1) List down all the actor of the system 
+2) For each actor define set of actions 
+3) Define unhappy path for each of them
+4) Summarize to finally gather requirements(functional)
+
+Step1) Actors of the system:
+-> Delivery Agent, Customer , Admin(locker manager)
+
+
+
+
+Functional Requirements:
+
+
+
+Non-Functional Requirements:
 
