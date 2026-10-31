@@ -8,7 +8,7 @@ public class CollectionsPractice{
         // LinkedHashMap
         // concurrent HashMap
         Map<String, Integer> hashMap = new HashMap<>();
-        hashMap.put("John", 25);
+        hashMap.put("John", 250);
         hashMap.put("Jane", 30);
         hashMap.put("Jim", 35);
 
